@@ -5,26 +5,26 @@
         "metaDataVersion": "1.1.0",
         "name": "com.microchip.mcu8.mplabx.project.avr128da48-cnano-ws2812-mplab-mcc",
         "version": "1.0.0",
-        "displayName": "  ",
+        "displayName": "AVR128DA48 RGB lighting with WS2812 using SPI and CCL",
         "projectName": "avr128da48-cnano-ws2812-mplab-mcc",
-        "shortDescription": "",
+        "shortDescription": "This repository contains an MCC generated code example that interfaces the WS2812 RGB LED with AVR128DA48 microcontroller using CCL, SPI, TCA and EVSYS.",
         "ide": {
             "name": "MPLAB X",
-            "semverRange": ""
+            "semverRange": ">=5.40.0"
         },
         "compiler": [
 			{
 				"name": "XC8",
-				"semverRange": ""
+				"semverRange": "^2.30.0"
 			}
 		],
         "dfp": {
-            "name": "",
-            "semverRange": ""
+            "name": "AVR-Dx",
+            "semverRange": "1.6.88"
         },
         "configurator": {
-            "name": "",
-            "semverRange": ""
+            "name": "MCC",
+            "semverRange": "4.0.1"
         },
         "device": {
             "metaDataVersion": "1.0.0",
@@ -32,16 +32,16 @@
             "content": {
                 "metaDataVersion": "1.0.0",
                 "category": "com.microchip.device",
-                "name": "",
+                "name": "AVR128DA48",
                 "versionRange": "*"
             }
         },
-        "author": "",
+        "author": "Microchip",
         "subcategories": [
         ],
-        "peripherals": [
+        "peripherals": [ "SPI", "CCL", "TCA", "EVSYS"
         ],
-        "keywords": [
+        "keywords": [ "WS2812", "RGB LED", "LED stripe", "RGB", "lighting"
         ],
 		"additionalData": {
 			"longDescription": {
