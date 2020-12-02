@@ -1,5 +1,5 @@
 <!-- Please do not change this logo with link -->
-[![MCHP](images/Microchip.png)](https://www.microchip.com)
+[![MCHP](images/microchip.png)](https://www.microchip.com)
 
 # AVR128DA48 RGB lighting with WS2812 using SPI and CCL
 
