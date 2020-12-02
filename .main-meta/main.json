@@ -44,7 +44,7 @@
 		],
         "peripherals": [ "CCL"
         ],
-        "keywords": [ "WS2812", "RGB LED", "LED stripe", "RGB", "lighting",
+        "keywords": [ "WS2812", "RGB LED", "LED stripe", "RGB", "lighting"
         ],
 		"additionalData": {
 			"longDescription": {
