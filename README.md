@@ -1,6 +1,6 @@
 <!-- Please do not change this html logo with link -->
 
-<a href="https://www.microchip.com" rel="nofollow"><img src="images/Microchip.png" alt="MCHP" width="300"/></a>
+<a href="https://www.microchip.com" rel="nofollow"><img src="images/microchip.png" alt="MCHP" width="300"/></a>
 
 # RGB lighting with WS2812 using AVR128DA48 Microcontroller with MCC Melody
 
@@ -23,7 +23,7 @@ More details and code examples on the AVR128DA48 can be found at the following l
 ## Hardware Used
 
 - AVR128DA48 Curiosity Nano Development Board is used as a test platform.
-<br><img src="images/AVR128DA48_CNANO_instructions.png" width="800">
+<br><img src="images/AVR128DA48_CNANO_instructions.PNG" width="800">
 - WS2812 LED Stripe
 - 12V Charger / Voltage Source for the LEDs
 
