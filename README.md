@@ -95,7 +95,7 @@ The output waveforms are shown in the figure below. SPI MOSI is the data sent th
 
 The light game is created on a LED strip which allows control of LEDs in groups of 3. The LED groups are lit from one end to another continuously.
 
-<br><img src="images/demo.gif" width="500">
+<br><img src="images/Demo.gif" width="500">
 
 **Note:** The number of LEDs (groups of LEDs) must be configured in firmware. See `NUMBER_OF_LEDS` macro define.
 
