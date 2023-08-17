@@ -16,7 +16,7 @@ More details and code examples on the AVR128DA48 can be found at the following l
 
 ## Software Used
 
-- [MPLAB® X IDE](http://www.microchip.com/mplab/mplab-x-ide) v6.10 or newer
+- [MPLAB X IDE](http://www.microchip.com/mplab/mplab-x-ide) v6.10 or newer
 - [MPLAB® XC8](http://www.microchip.com/mplab/compilers) v2.41 or newer
 - [AVR-Dx Series Device Pack](https://packs.download.microchip.com/) v2.3.272 or newer
 
@@ -37,7 +37,7 @@ The following peripheral and clock configurations are set up using MCC Melody fo
 
 - CLKCTRL:
     - Clock Selection: Internal high-frequency oscillator
-    - Internal Oscillator Frequency: 1-32MHz internal oscillator
+    - Internal Oscillator Frequency: 1-32 MHz internal oscillator
     - Oscillator Frequency Selection: 24 MHz system clock   
 
 - SPI0:
@@ -85,15 +85,15 @@ The following peripheral and clock configurations are set up using MCC Melody fo
 |PA6 (SPI0 SCK)    | Digital Output  |
 |PA7 (SPI0 SS)     | Digital Output  |
 
-**Note:** Only PA3 (LUT0 OUT) will be used to transmit data to the WS2812 LED. The rest of the pins are routed outside for visualization of intermediary signals.
+**Note:** Only PA3 (LUT0 OUT) will be used to transmit data to the WS2812 LED. The rest of the pins are routed outside for intermediary signals visualization.
 
 ## Demo
 
-The output waveforms are shown in the figure below. SPI MOSI is the data sent through SPI and the LUT0 OUT is the translated message, intelligible by WS2812 LED.
+The output waveforms are shown in the figure below. SPI MOSI is the data sent through SPI, and the LUT0 OUT is the translated message, intelligible by WS2812 LED.
 
 <br><img src="images/waveforms.png" width="800">
 
-The light game is created on a LED strip which allows control of LEDs in groups of 3. The LED groups are lit from one end to another continuously.
+The light game is created on a LED strip which allows control of LEDs in groups of three. The LED groups are lit from one end to another continuously.
 
 <br><img src="images/Demo.gif" width="500">
 
