@@ -1,109 +1,140 @@
-[![MCHP](images/microchip.png)](https://www.microchip.com)
+<!-- Please do not change this html logo with link -->
 
-# AVR128DA48 RGB lighting with WS2812 using SPI and CCL
+<a href="https://www.microchip.com" rel="nofollow"><img src="images/Microchip.png" alt="MCHP" width="300"/></a>
 
-This repository provides an MPLAB® X project with an MPLAB® Code Configurator (MCC) generated code example for interfacing the CCL and SPI peripherals with the WS2812 LED.
-<br>The messages compatible with the WS2812 LED are formed from ones and zeros with a specific duration and form. The application translates the messages sent by SPI into messages intelligible by WS2812, using CCL.
-<br>Furthermore, it creates a light game on a WS2812 LED band.
-<br>The peripherals used are:
-- Serial Peripheral Interface (SPI)
-- Configurable Custom Logic (CCL)
-- Timer/Counter Type A (TCA)
-- Event System (EVSYS)
+# RGB lighting with WS2812 using AVR128DA48 Microcontroller with MCC Melody
+
+This repository provides an MPLAB® X project with an MPLAB® Code Configurator (MCC) generated code example for interfacing the CCL (Configurable Custom Logic) and SPI (Serial Peripheral Interface) peripherals with the WS2812 LED. The messages compatible with the WS2812 LED are formed from ones and zeros with a specific duration and form. The application translates the messages sent by SPI into messages intelligible by WS2812, using CCL. Furthermore, it creates a light game on a WS2812 LED band.
 
 ## Related Documentation
+
 More details and code examples on the AVR128DA48 can be found at the following links:
+
 - [AVR128DA48 Product Page](https://www.microchip.com/wwwproducts/en/AVR128DA48)
 - [AVR128DA48 Code Examples on GitHub](https://github.com/microchip-pic-avr-examples?q=avr128da48)
-- [AVR128DA48 Project Examples in START](https://start.atmel.com/#examples/AVR128DA48CuriosityNano)
-- [WS2812 Datasheet](https://cdn-shop.adafruit.com/datasheets/WS2812.pdf)
-
+- [WS2812 Datasheet](https://www.tme.com/Document/1d930d9b83e8cce43e5d1c490ab0fbe8/WS2818A.pdf)
 
 ## Software Used
-- MPLAB® X IDE 5.40 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
-- MPLAB® XC8 2.30 or a newer compiler [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
-- MPLAB® Code Configurator (MCC) 4.0.1 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-- MPLAB® Code Configurator (MCC) Device Libraries 8-bit AVR MCUs 2.5.0 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-- AVR-Dx 1.6.88 or newer Device Pack
 
+- [MPLAB® X IDE](http://www.microchip.com/mplab/mplab-x-ide) v6.10 or newer
+- [MPLAB® XC8](http://www.microchip.com/mplab/compilers) v2.41 or newer
+- [AVR-Dx Series Device Pack](https://packs.download.microchip.com/) v2.3.272 or newer
 
 ## Hardware Used
-- AVR128DA48 Curiosity Nano [(DM164151)](https://www.microchip.com/Developmenttools/ProductDetails/DM164151)
-- LED Stripe WS2812
-- 12V Charger/Voltage Source for the LEDs
 
-## Setup
-The AVR128DA48 Curiosity Nano Development Board is used as test platform.
-<br><img src="images/AVR128DA48_CNANO_instructions.PNG" width="500">
-
-The following configurations must be made for this project:
-
-System clock: 24 MHz
-
-SPI0:
-- Mode: Host
-- Clock frequency: 750 kHz
-
-LUT0:
-- IN0: TCA0-WO0
-- IN1: SPI-CLK
-- IN2: TCA0-WO2
-- TRUTH table: 0xE0
-- Clock source: CLKPER
-
-TCA0:
-- Single-slope PWM mode
-- Compare channel 0: enabled
-- Compare channel 2: enabled
-- Channel 0 waveform duty cycle: 0.4%
-- Channel 2 waveform duty cycle: 0.7%
-- Period: 100 us
-
-EVSYS:
-- Event Generators:
-  - SPI0_CLK: CHANNEL0
-- Event Users:
-  - CHANNEL 0: TCA0CNTB
-
-
-|Pin               | Configuration      |
-| :--------------: | :----------------: |
-|PA0 (TCA0-WO0)    | Digital Output     |
-|PA2 (TCA0-WO2)    | Digital Output     |
-|PA3 (LUT0_OUT)    | Digital Output     |
-|PA4 (SPI0-MOSI)   | Digital Output     |
-|PA6 (SPI0-CLK)    | Digital Output     |
-
-<br>**Note:** Only PA3(LUT0_OUT) will be used to transmit data to the WS2812 LED. The rest of the pins are routed outside for visualization of intermediary signals.
+- AVR128DA48 Curiosity Nano Development Board is used as a test platform.
+<br><img src="images/AVR128DA48_CNANO_instructions.png" width="800">
+- WS2812 LED Stripe
+- 12V Charger / Voltage Source for the LEDs
 
 ## Operation
- 1. Connect the board to the PC.
 
- 2. Open the avr128da48-cnano-ws2812-mplab-mcc.X project in MPLAB® X IDE.
+To program the Curiosity Nano board with this MPLAB X project, follow the steps provided in the [How to Program the Curiosity Nano Board](#how-to-program-the-curiosity-nano-board) chapter.<br>
 
- 3. Set the avr128da48-cnano-ws2812-mplab-mcc.X project as main project. Right click the project in the **Projects** tab and click **Set as Main Project**.
- <br><img src="images/Set_as_Main_Project.png" width="600">
+## Setup
 
- 4. Clean and build the avr128da48-cnano-ws2812-mplab-mcc.X project: right click the **avr128da48-cnano-ws2812-mplab-mcc.X** project and select **Clean and Build**.
- <br><img src="images/Clean_and_Build.png" width="600">
+The following peripheral and clock configurations are set up using MCC Melody for the AVR128DA48:
 
- 5. Select **AVR128DA48 Curiosity Nano** in the Connected Hardware Tool section of the project settings:
-   - Right click the project and click **Properties**;
-   - Click the arrow right next to Connected Hardware Tool;
-   - Select AVR128DA48 Curiosity Nano (click the **SN**), click **Apply** and then click **OK**:
+- CLKCTRL:
+    - Clock Selection: Internal high-frequency oscillator
+    - Internal Oscillator Frequency: 1-32MHz internal oscillator
+    - Oscillator Frequency Selection: 24 MHz system clock   
 
- <br><img src="images/Selection_Tool.png" width="600">
+- SPI0:
+    - Enable SPI: Enabled
+    - Modes: Host
+    - SPI Mode: 1
+    - Desired Clock Speed (Hz): 750000 (750 kHz)
 
- 6. Program the project to the board: right click the project and click **Make and Program Device**.
-<br><img src="images/Make_and_Program_Device.png" width="600">
+- CCL:
+    - Enable CCL: Enabled
+    - LUT0:
+        - Enable LUT: Enabled
+        - Enable LUT Output: Enabled
+        - Input 0: TCA0 (WO0)
+        - Input 1: SPI0 (MOSI)
+        - Input 2: TCA0 (WO2)
+        - Gate Type: Custom
+        - Output Result: 0xE0
 
-Demo:
-<br>The output waveforms are shown in the figure below. SPI_MOSI is the data sent through SPI and the LUT0_OUT is the translated message, intelligible by WS2812 LED.
-<br><img src="images/Demo.PNG" width="600">
+- TCA0:
+    - Enable Timer: Enabled
+    - Clock Selection: System Clock
+    - Timer Mode: 16 Bit (Normal)
+    - Count Direction: UP
+    - Requested Timeout (s): 0.0001 (100 μs)
+    - Enable Count on Event Input B: Enabled
+    - Event Action B: Restart on Positive Event Edge
+    - Waveform Generation Mode: Single Slope PWM
+    - Enable Channel 0: Enabled
+    - Enable Channel 2: Enabled
+    - Duty Cycle 0 (%): 0.4%
+    - Duty Cycle 2 (%): 0.7%
+
+- EVSYS:
+    - Generators: SPI0_SCK -> CHANNEL0
+    - Users: CHANNEL0 -> TCA0CNTB
+    - Routing: SPI0_SCK -> CHANNEL0 -> TCA0CNTB
+
+| Pin              | Configuration   |
+| :--------------: | :-------------: |
+|PA0 (TCA0 WO0)    | Digital Output  |
+|PA2 (TCA0 WO2)    | Digital Output  |
+|PA3 (LUT0 OUT)    | Digital Output  |
+|PA4 (SPI0 MOSI)   | Digital Output  |
+|PA6 (SPI0 SCK)    | Digital Output  |
+|PA7 (SPI0 SS)     | Digital Output  |
+
+**Note:** Only PA3 (LUT0 OUT) will be used to transmit data to the WS2812 LED. The rest of the pins are routed outside for visualization of intermediary signals.
+
+## Demo
+
+The output waveforms are shown in the figure below. SPI MOSI is the data sent through SPI and the LUT0 OUT is the translated message, intelligible by WS2812 LED.
+
+<br><img src="images/waveforms.png" width="800">
 
 The light game is created on a LED strip which allows control of LEDs in groups of 3. The LED groups are lit from one end to another continuously.
-<br><img src="images/Demo.gif" width="500">
-<br>**Note:** The number of LEDs (groups of LEDs) must be configured in firmware. See `NUMBER_OF_LEDS` macro define.
+
+<br><img src="images/demo.gif" width="500">
+
+**Note:** The number of LEDs (groups of LEDs) must be configured in firmware. See `NUMBER_OF_LEDS` macro define.
 
 ## Summary
+
 The demo shows how to interface WS2812 LED with the SPI peripheral using CCL and TCA.
+
+##  How to Program the Curiosity Nano board
+
+This chapter shows how to use the MPLAB X IDE to program an AVR® device with an Example_Project.X. This can be applied for any other projects. 
+
+- Connect the board to the PC.
+
+- Open the Example_Project.X project in MPLAB X IDE.
+
+- Set the Example_Project.X project as main project.
+
+  - Right click on the project in the **Projects** tab and click **Set as Main Project**.
+    <br><img src="images/program_set_as_main_project.png" width="500">
+
+- Clean and build the Example_Project.X project.
+
+  - Right click on the **Example_Project.X** project and select **Clean and Build**.
+    <br><img src="images/program_clean_and_build.png" width="500">
+
+- Select the **AVRxxxxx Curiosity Nano** in the Connected Hardware Tool section of the project settings:
+
+  - Right click on the project and click **Properties**
+  - Click on the arrow under the Connected Hardware Tool
+  - Select the **AVRxxxxx Curiosity Nano** (click on the **SN**), click **Apply** and then click **OK**:
+    <br><img src="images/program_tool_selection.png" width="500">
+
+- Program the project to the board.
+  - Right click on the project and click **Make and Program Device**.
+    <br><img src="images/program_make_and_program_device.png" width="500">
+
+<br>
+
+- [Back to Setup](#setup)
+- [Back to Demo](#demo)
+- [Back to Summary](#summary)
+- [Back to Top](#rgb-lighting-with-ws2812-using-avr128da48-microcontroller-with-mcc-melody)

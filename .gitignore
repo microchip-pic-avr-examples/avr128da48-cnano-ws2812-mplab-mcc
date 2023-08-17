@@ -1,13 +1,12 @@
-# Untracked files in MPLABX projects
-/**/build/*
-/**/nbproject/*
-!/**/nbproject/*.xml
-/**/[Ff]ree/production/*
-/**/[Pp]ro/production/*
-/**/.generated_files/*
-
-# Uncomment these to include hex/elf files
-#!/**/[Ff]ree/production/*.hex
-#!/**/[Ff]ree/production/*.elf
-#!/**/[Pp]ro/production/*.hex
-#!/**/[Pp]ro/production/*.elf
+/*/dist/
+/*/debug/
+/*/build/
+/*/nbproject/private/
+/*/nbproject/*.properties
+/*/nbproject/*.mk
+/*/nbproject/*.bash
+**/*.bak
+**/*.o
+**/*.d
+**/*.elf
+**/*.map

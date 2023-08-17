@@ -2,29 +2,29 @@
     "metaDataVersion": "1.0.0",
     "category": "com.microchip.ide.project",
     "content": {
-        "metaDataVersion": "1.1.0",
+        "metaDataVersion": "1.3.0",
         "name": "com.microchip.mcu8.mplabx.project.avr128da48-cnano-ws2812-mplab-mcc",
-        "version": "1.0.1",
-        "displayName": "RGB lighting with WS2812 using SPI and CCL",
+        "version": "1.0.2",
+        "displayName": "RGB lighting with WS2812 using AVR128DA48 Microcontroller with MCC Melody",
         "projectName": "avr128da48-cnano-ws2812-mplab-mcc",
-        "shortDescription": "This repository contains an MCC generated code example that interfaces the WS2812 RGB LED with AVR128DA48 microcontroller using CCL, SPI, TCA and EVSYS.",
+        "shortDescription": "This repository provides an MPLAB® X project with an MPLAB® Code Configurator (MCC) generated code example for interfacing the CCL (Configurable Custom Logic) and SPI (Serial Peripheral Interface) peripherals with the WS2812 LED.",
         "ide": {
             "name": "MPLAB X",
-            "semverRange": ">=5.40.0"
+            "semverRange": ">=6.10.0"
         },
         "compiler": [
 			{
 				"name": "XC8",
-				"semverRange": "^2.30.0"
+				"semverRange": "^2.41.0"
 			}
 		],
         "dfp": {
             "name": "AVR-Dx",
-            "semverRange": "1.6.88"
+            "semverRange": "^2.3.272"
         },
         "configurator": {
             "name": "MCC",
-            "semverRange": "4.0.1"
+            "semverRange": ">=5.3.7"
         },
         "device": {
             "metaDataVersion": "1.0.0",
@@ -37,16 +37,10 @@
             }
         },
         "author": "Microchip",
-        "subcategories": [
-			[
-				"Peripherals",
-				"CCL"
-			]
-		],
         "peripherals": [
-			"CCL"
+			"CCL", "TCA", "SPI", "EVSYS", "GPIO"
         ],
-        "keywords": [ "WS2812", "RGB LED", "RGB lighting"
+        "keywords": [ "WS2812/11", "RGB LED", "RGB lighting", "AVR128DA48"
         ],
 		"additionalData": {
 			"longDescription": {
