@@ -40,7 +40,7 @@
         "peripherals": [
 			"CCL", "TCA", "SPI", "EVSYS", "GPIO"
         ],
-        "keywords": [ "WS2812/11", "RGB LED", "RGB lighting", "AVR128DA48"
+        "keywords": [ "Melody", "WS2812/11", "CCL", "SPI"
         ],
 		"additionalData": {
 			"longDescription": {
